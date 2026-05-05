@@ -20,10 +20,10 @@ const boolean2: Array<boolean> = [true, false, false, true]
 
 
 //& with generics
-type GenericArray<T> = Array<T>
+type GenericArray <T> = T[]
 
 const animal1: GenericArray<string> = ['a', 'b', 'c']
-const mix: GenericArray<number | string> = [5, 3, 2, 'ok', 'done']
+const mix: GenericArray <number | string> = [5, 3, 2, 'ok', 'done']
 const boolean3: GenericArray<boolean> = [true, false, false, true]
 
 
@@ -31,12 +31,12 @@ const boolean3: GenericArray<boolean> = [true, false, false, true]
 //& normal type alias approach
 type Coordinates = [number, number]
 const coordinate: Coordinates = [20, 30]
-
+const coor : (string | number)[] = ['shahdat', 39]
 
 
 //& with generics
 type Cordinate<X, Y> = [X, Y]
-const cor: Cordinate<number, number> = [20, 49]
+const cor: Cordinate <number, number> = [20, 49]
 const user: Cordinate<string, number> = ['shahdat', 20]
 
 
@@ -56,7 +56,7 @@ const list: GenericArray<List> = [
 
 
 //* using interface
-interface Developer<T, X, Y, Z = null> {
+interface Developer <T, X, Y, Z = null> {
   name: string,
   salary: number
   device: {
@@ -89,8 +89,9 @@ const poorDev : Developer<Watch, string, boolean> = {
   },
   phone: 'realme',
   bike: false,
-  //* optional: 'no'   // this is optional property
+  //* optional: 'haha'   // this is optional property
 }
+//~ console.log(poorDev)
 
 interface appleWatch {
   calling: boolean
@@ -98,12 +99,12 @@ interface appleWatch {
 }
 
 const richDev : Developer<appleWatch, string, boolean, string> = {
-  name: 'Mr. Poor',
+  name: 'Mr. Rich',
   salary: 30,
   device: {
-    brand: 'hp',
-    model: 'hp382',
-    release: 2024
+    brand: 'Mac Book',
+    model: 'mac382',
+    release: 2026
   },
   smartWatch: {
     aiFeature: true,
@@ -113,7 +114,7 @@ const richDev : Developer<appleWatch, string, boolean, string> = {
   bike: true,
   optional: 'yes optional'
 }
-
+//~ console.log(richDev)
 
 
 
@@ -121,6 +122,7 @@ const richDev : Developer<appleWatch, string, boolean, string> = {
 //& funtion with generics
 
 //! not efficient
+//? array conversion
 const arrayStr = (val: string) => [val]
 const arrayNum = (val: number) => [val]
 const arrayObj = (val: {name: string, id: number}) => [val]
@@ -139,32 +141,29 @@ const arrayObj = (val: {name: string, id: number}) => [val]
 
 //* good for generics
 const ArrayGenerics = <T>(val: T) => [val]
-// console.log(ArrayGenerics('shahdat'))
-// console.log(ArrayGenerics({
-//   name: 'a',
-//   id: 3
-// }))
-// console.log(ArrayGenerics({
-//   name: 'asd',
-//   id: 29,
-//   city: 'chand'
-// }))
+console.log(ArrayGenerics('shahdat'))
+console.log(ArrayGenerics({
+  name: 'a',
+  id: 3
+}))
+console.log(ArrayGenerics({
+  name: 'asd',
+  id: 29,
+  city: 'chand'
+}))
 
 
 
 
 //& touple
 const arrayTuple = (val1: number, val2: string) => [val1, val2]
-// console.log(arrayTuple(29, 'rakib'))
+console.log(arrayTuple(29, 'rakib'))
 
 
 const arrGenericsTuple = <X, Y> (val1: X, val2: Y) => [val1, val2] 
-
-// console.log(arrGenericsTuple(29, 'rakib'))
+// console.log(arrGenericsTuple(2900, 'rakib'))
 // console.log(arrGenericsTuple('city', 'rakib'))
 // console.log(arrGenericsTuple('rakib', true))
-
-
 
 
 //! normarl approach
@@ -177,7 +176,7 @@ const arrGenericsTuple = <X, Y> (val1: X, val2: Y) => [val1, val2]
 
 
 //? not efficient approach at all
-const studentInfo = <T> (student: T) => {
+const studentInfo = <T> (student: T) : T => {
   return {
     batch: 'next level B7',
     ...student

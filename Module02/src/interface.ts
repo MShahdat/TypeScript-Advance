@@ -3,7 +3,7 @@
 //! interface work only object type [object, function, array] 
 
 
-//& type alias
+//& type alias with intersection
 type tUser = {
   name: string
   age: number
@@ -22,7 +22,8 @@ const tuser: tUserRole = {
 }
 
 
-//& interface type
+//* type alias is better compare to interface for 'object intersection' 
+//& interface type for object
 interface User {
   name: string
   age: number
@@ -32,11 +33,11 @@ interface Role {
   role: 'admin' | 'user' | 'guest'
 }
 
-interface UserRole extends User {
+interface UserWithRole extends User {
   role: 'admin' | 'user' | 'guest'
 }
 
-const user: UserRole = {
+const user: UserWithRole = {
   name: 'shahdat',
   age: 30,
   role: 'admin'
@@ -44,13 +45,13 @@ const user: UserRole = {
 
 
 
-//& type alias
+//& type alias for array
 type Fruits = string[]
 const fruits: Fruits = ['A', 'B', 'C']
 
 
 
-//& interface type
+//& interface type for array
 interface Friends {
   [index: number]: string
 }
@@ -59,15 +60,16 @@ const friends: Friends = ['pintu', 'mintu', 'jontu']
 
 
 
-//& type alias
+//& type alias for function
 type Add = (a: number, b: number) => number
 const add: Add = (a, b) => {
   return a + b
 }
+console.log(add(3, 9))
 
 
 
-//& interface type
+//& interface type for function
 interface Sum {
   (a: number, b: number): number
 }

@@ -29,8 +29,14 @@ type OptionalProduct = Partial<Product>
 type ReadonlyPro = Readonly<Product>
 
 
+//! normal approach (not good)
+const emptyObject : object = {}
+console.log(emptyObject)
+
 //* Record<key type, value type>  initialize empty object
 const emptyObj : Record<string, unknown> = {}
+emptyObj.name = 'shahdat'
+console.log(emptyObj)
 
 
 

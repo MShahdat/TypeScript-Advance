@@ -9,10 +9,10 @@ type RichUser = {
 }
 
 type PoorUser1 = 'bike' | 'car' | 'track'
-// const poorU: PoorUser = "track" 
+const poorU: PoorUser1 = "bike" 
 
 type PoorUser2 = keyof RichUser
-const poorU : PoorUser2 = 'plane'
+const poorU1 : PoorUser2 = 'track'
 
 
 
@@ -37,14 +37,16 @@ const user = {
 // console.log(user.address.city)
 
 
-// type Key = keyof User
-type Key = keyof Product
+// type Key = keyof User      // 'id' | 'name' | 'address'
+    
 
 const getProperty = <T> (obj: T, key: keyof T) => {
   return obj[key]
 }
+console.log(getProperty(user, 'address'))
 
 
+type Key = keyof Product    
 type Product = {
   id: number
   name: string
@@ -66,7 +68,7 @@ const student = {
   name: 'shahdat'
 }
 
-// console.log(getProperty(user, 'address'))
+console.log(getProperty(user, 'address'))
 console.log(getProperty(student, 'name'))
 
 

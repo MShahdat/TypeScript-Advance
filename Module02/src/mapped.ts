@@ -7,7 +7,6 @@ const arStr: string[] = ['a', 'b', 'c']
 const arrStrMap = arNum.map((item) => {
   return item.toString()
 })
-
 console.log(arrStrMap)
 
 
@@ -25,6 +24,7 @@ type arrStr = {
   age: string
 }
 
+//* all convert string
 type arrString = {
   // [key in 'id' | 'age'] : string
   [key in keyof arrNum] : string
@@ -35,7 +35,6 @@ type arrString = {
 type Info <T> = {
   [key in keyof T] : T[key]
 }
-
 
 const user1 : Info<{id: number, age: number, class: string}> = {
   id: 49,

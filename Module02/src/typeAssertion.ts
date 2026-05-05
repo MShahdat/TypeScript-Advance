@@ -12,7 +12,7 @@ const str: any = 'shahdat'
 const len: number = (str as string).length
 
 
-
+//* meter to centemeter converter
 const MToCM = (value: string | number) => {
   if(typeof value === "number"){
     return value * 1000

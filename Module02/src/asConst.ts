@@ -14,7 +14,7 @@ const Role = {
     guest: string
   }
 
-2. keyof Role =>
+2. keyof typeof Role =>
   'admin' | 'user' | 'guest'
 
 */

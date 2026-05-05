@@ -18,7 +18,7 @@ type constraint = {
   batch: string
 }
 
-const studentInfo = <T extends constraint> (student: T) => {
+const studentInfo = <T extends constraint> (student: T) : T => {
   return {
     plateform: 'Programming Hero',
     ...student
